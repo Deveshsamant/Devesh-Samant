@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devesh Samant - Engineering Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e74c3c 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ecf0f1;
+            font-weight: bold;
+        }
+        #showcase {
+            min-height: 400px;
+            background: url('/api/placeholder/1200/400') no-repeat center center/cover;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+        }
+        #showcase .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #showcase h1 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        #showcase p {
+            font-size: 20px;
+        }
+        #boxes {
+            margin-top: 20px;
+        }
+        #boxes .box {
+            float: left;
+            text-align: center;
+            width: 30%;
+            padding: 10px;
+        }
+        #boxes .box img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #2c3e50;
+            text-align: center;
+        }
+        a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #ffffff;
+        }
+        #profile {
+            text-align: center;
+            padding: 20px 0;
+        }
+        #profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        #skills {
+            padding: 20px 0;
+            background-color: #ecf0f1;
+        }
+        #skills ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        #skills li {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        #skills h2{
+            font-size: 50px;
+            text-align: center;
+        }
+        #skills h3{
+            font-size: 25px;
+        }
+        #skills img{
+            width: 150px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+        #certifications {
+            background-color: #ecf0f1;
+            padding: 20px 0;
+        }
+        #certifications h2{
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .cert-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .cert-item {
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            width: calc(33% - 20px);
+            text-align: center;
+        }
+        .cert-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .cert-item h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        .cert-item a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        .cert-item a:hover {
+            background-color: #c0392b;
+        }
+        .cert-item .download-btn {
+            background-color: #3498db;
+        }
+        .cert-item .download-btn:hover {
+            background-color: #2980b9;
+        }
+        #projects {
+            background-color: #ecf0f1;
+            padding: 20px 0;
+        }
+        #projects h2{
+            font-size: 50px;
+            text-align: center;
+        }
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .project-item {
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            width: calc(33% - 20px);
+            text-align: center;
+        }
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .project-item h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .project-item p {
+            margin-bottom: 10px;
+        }
+        .project-item a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+        .project-item a:hover {
+            background-color: #c0392b;
+        }
+        @media (max-width: 768px) {
+            .cert-item, .project-item {
+                width: 100%;
+            }
+            #boxes .box {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Devesh Samant</span> Portfolio</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="overlay">
+            <h1>Welcome to My Engineering Portfolio</h1>
+            <p>Innovative solutions in Computer Science & Engineering</p>
+        </div>
+    </section>
+
+    <section id="profile">
+        <div class="container">
+            <img src="myphoto.jpg" alt="Devesh Samant">
+            <h2>Devesh Samant</h2>
+            <p>Computer Science & Engineering Student</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <h3>Programming Languages</h3>
+            <img src="c++.png" alt="Programming Languages Icon">
+            <img src="javaa.png" alt="Computer Science Concepts Icon">
+            <img src="js.png" alt="Development Tools Icon">
+            <img src="html.png" alt="Development Tools Icon">
+            <img src="css.png" alt="Development Tools Icon"> 
+            <img src="kotlin.png" alt="Development Tools Icon"> 
+            <img src="python.png" alt="Development Tools Icon"> 
+            <img src="sql.png" alt="Development Tools Icon"> 
+            <img src="react.png" alt="Development Tools Icon">
+            
+
+            <h3>Development Tools</h3>
+            <img src="jup.png" alt="Development Tools Icon"> 
+            <img src="vscode.png" alt="Development Tools Icon"> 
+            <img src="ecl.png" alt="Development Tools Icon"> 
+            <img src="py.png" alt="Development Tools Icon">
+            <img src="git.png" alt="Development Tools Icon">  
+
+
+            
+        </div>
+    </section>
+
+    <section id="boxes">
+        <div class="container">
+            
+            <div class="box">
+                <img src="/api/placeholder/90/90" alt="Education">
+                <h3>Education</h3>
+                <p>B.Tech. in Computer Science & Engineering - <a href="https://www.gehu.ac.in/" target="_blank">Graphic Era Hill University</a> (2021-2025) | CGPA: 7.58/10</p>
+            </div>
+            <div class="box">
+                <img src="/api/placeholder/90/90" alt="Tools">
+                <h3>Tools</h3>
+                <p>Jupyter, VS Code, Eclipse, Oracle Database, Git</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <div class="project-item">
+                    <img src="mobile.jpg" alt="Mobile Price Range Prediction">
+                    <h3>Mobile Price Range Prediction</h3>
+                    <p>Developed a machine learning model using Random Forest algorithm to predict mobile phone price ranges. Implemented with Python, Streamlit, and Scikit-learn.</p>
+                    <a href="https://github.com/Deveshsamant/Mobile-range-Prediction-using-Random-Forest" target="_blank">View Project</a>
+                </div>
+                <div class="project-item">
+                    <img src="hand.jpg" alt="Hand Gesture Recognition">
+                    <h3>Hand Gesture Recognition</h3>
+                    <p>Designed and implemented a system to recognize hand gestures using Mediapipe, Python, and OpenCV, enabling touchless interaction with digital systems.</p>
+                    <a href="https://github.com/Deveshsamant/Hand-gesture-recognisation" target="_blank">View Project</a>
+                </div>
+                <div class="project-item">
+                    <img src="movie.jpg" alt="Movie Recommendation System">
+                    <h3>Movie Recommendation System</h3>
+                    <p>Performed data analysis and visualization on movie data using Python libraries like Pandas, Matplotlib, and Seaborn to uncover trends in the film industry.</p>
+                    <a href="https://github.com/Deveshsamant/Movie-Recommendation-system" target="_blank">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications</h2>
+            <div class="cert-container">
+                <div class="cert-item">
+                    <img src="python.jpg" alt="Crash Course on Python Certificate">
+                    <h3>Crash Course on Python</h3>
+                    <p>Google & Coursera - Intensive course on Python programming fundamentals</p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/LES49221JBAH" target="_blank" class="view-btn">View Certificate</a>
+                    <a href="python.jpg" class="download-btn" download="Crash_Course_on_Python_Certificate.jpg">Download Certificate</a>
+                </div>
+                <div class="cert-item">
+                    <img src="web.jpg" alt="The Web Developer Bootcamp 2024 Certificate">
+                    <h3>The Web Developer Bootcamp 2024</h3>
+                    <p>Udemy - Full-stack web development course covering front-end and back-end technologies</p>
+                    <a href="https://www.udemy.com/certificate/UC-a3a88382-d387-4a2e-93e2-c707ea7586d6/" target="_blank" class="view-btn">View Certificate</a>
+                    <a href="web.jpg" class="download-btn" download="Web_Developer_Bootcamp_Certificate.jpg">Download Certificate</a>
+                </div>
+                <div class="cert-item">
+                    <img src="kotlin.jpg" alt="The Complete Android 14 & Kotlin Development Masterclass Certificate">
+                    <h3>The Complete Android 14 & Kotlin Development Masterclass</h3>
+                    <p>Udemy - Comprehensive course on Android app development using Kotlin</p>
+                    <a href="https://www.udemy.com/certificate/UC-c05bfd05-f93c-4876-9b84-7fd8f10dc039/" target="_blank" class="view-btn">View Certificate</a>
+                    <a href="kotlin.jpg" class="download-btn" download="Android_Kotlin_Masterclass_Certificate.jpg">Download Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <footer>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/devesh-samant-b78376258/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Deveshsamant" target="_blank">GitHub</a>
+            </div>
+            <p>Contact: <a href="mailto:aani64257@gmail.com">aani64257@gmail.com</a> | Phone: +91-7820020955</p>
+            <p>Devesh Samant Portfolio, Copyright &copy; 2024</p>
+        </footer>
+    </section>
+</body>
+</html>
