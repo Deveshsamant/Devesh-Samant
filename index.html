@@ -264,9 +264,126 @@
                 margin-bottom: 20px;
             }
         }
+        #education {
+            background-color: #ecf0f1;
+            padding: 50px 0;
+        }
+        
+        #education h2 {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-icon {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .timeline-icon img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+        
+        .timeline-content {
+            flex: 4;
+            padding-left: 20px;
+        }
+        
+        .timeline-content h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+        
+        .timeline-content .duration {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+        }
+        
+        .timeline-content a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .timeline-content a:hover {
+            background-color: #c0392b;
+        }
+        .dropdown-btn {
+            margin-top: 10px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .dropdown-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Dropdown Content (Initially Hidden) */
+        .dropdown-content {
+            display: none;
+            padding-top: 10px;
+            padding-left: 10px;
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            margin-top: 10px;
+        }
+
+        /* Show Dropdown Content */
+        .show {
+            display: block;
+        }
+        
+
+        
+        
     </style>
 </head>
 <body>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+            dropdownButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const dropdownContent = this.nextElementSibling;
+                    dropdownContent.classList.toggle('show');
+                });
+            });
+        });
+    </script>
     <header>
         <div class="container">
             <div id="branding">
@@ -297,7 +414,69 @@
             <p>Computer Science & Engineering Student</p>
         </div>
     </section>
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="timeline">
+                
+                <!-- B.Tech. in Computer Science & Engineering -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="gg.png" alt="Education Icon">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>B.Tech. in Computer Science & Engineering</h3>
+                        <span class="duration">Graphic Era Hill University (2021-2025)</span>
+                        <p>CGPA: 7.58/10</p>
+                        <button class="dropdown-btn">More Details</button>
+                        <div class="dropdown-content">
+                            <p>Interest: Data Structures and Algorithms, Machine Learning, AI.</p>
+                            <p>Achievements: Participated in Hackathons, Secured 3rd Position in esports events.</p>
+                            <p>Strong Programming Language: C++, Python, SQL.</p>
 
+                        </div>
+                        <a href="https://www.gehu.ac.in/" target="_blank">Visit University Website</a>
+                    </div>
+                </div>
+
+                <!-- 12th Grade -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="nps.png" alt="Education Icon">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>12th Grade</h3>
+                        <span class="duration">N.P.S Khatima (2020-2021)</span>
+                        <p>Percentage: 87%</p>
+                        <button class="dropdown-btn">More Details</button>
+                        <div class="dropdown-content">
+                            <p>Subjects: Physics, Chemistry, Mathematics, English, Computer Science.</p>
+                            <p>Strong Subject: Mathematics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10th Grade -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <img src="nps.png" alt="Education Icon">
+                    </div>
+                    <div class="timeline-content">
+                        <h3>10th Grade</h3>
+                        <span class="duration">N.P.S Khatima (2018-2019)</span>
+                        <p>Percentage: 88%</p>
+                        <button class="dropdown-btn">More Details</button>
+                        <div class="dropdown-content">
+                            <p>Subjects: Mathematics, Science, English, Hindi, Social Science.</p>
+                            <p>Strong Subject: Mathematics.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
     <section id="skills">
         <div class="container">
             <h2>Skills</h2>
@@ -319,11 +498,13 @@
             <img src="ecl.png" alt="Development Tools Icon"> 
             <img src="py.png" alt="Development Tools Icon">
             <img src="git.png" alt="Development Tools Icon">  
-
-
-            
         </div>
     </section>
+    
+    
+
+    
+
     <section id="projects">
         <div class="container">
             <h2>Projects</h2>
