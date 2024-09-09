@@ -383,7 +383,29 @@
             margin-bottom: 10px;
             padding: 5px;
         }
+        .fade-out {
+            animation: fadeOut 0.5s forwards;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         
+        }
 
         
         
@@ -392,16 +414,23 @@
 <body>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const dropdownButtons = document.querySelectorAll('.dropdown-btn');
-            dropdownButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const dropdownContent = this.nextElementSibling;
-                    dropdownContent.classList.toggle('show');
-                });
+        document.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                // Allow default behavior for target="_blank" links
+                if (this.target === "_blank") {
+                    return;
+                }
+                event.preventDefault();
+                const target = this.href;
+                document.body.classList.add('fade-out');
+                setTimeout(function () {
+                    window.location.href = target;
+                }, 500);
             });
         });
+        
     </script>
+    
     <header>
         <div class="container">
             <div id="branding">
@@ -410,8 +439,9 @@
             <nav>
                 <ul>
                     <li class="current"><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="certificates.html">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -435,66 +465,11 @@
             <p>Computer Science & Engineering Student</p>
         </div>
     </section>
-    <section id="education">
+    <section id="education-summary">
         <div class="container">
             <h2>Education</h2>
-            <div class="timeline">
-                
-                <!-- B.Tech. in Computer Science & Engineering -->
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <img src="gg.png" alt="Education Icon">
-                    </div>
-                    <div class="timeline-content">
-                        <h3>B.Tech. in Computer Science & Engineering</h3>
-                        <span class="duration">Graphic Era Hill University (2021-2025)</span>
-                        <p>CGPA: 7.58/10</p>
-                        <button class="dropdown-btn">More Details</button>
-                        <div class="dropdown-content">
-                            <p>Interest: Data Structures and Algorithms, Machine Learning, AI.</p>
-                            <p>Achievements: Participated in Hackathons, Secured 3rd Position in esports events.</p>
-                            <p>Strong Programming Language: C++, Python, SQL.</p>
-
-                        </div>
-                        <a href="https://www.gehu.ac.in/" target="_blank">Visit University Website</a>
-                    </div>
-                </div>
-
-                <!-- 12th Grade -->
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <img src="nps.png" alt="Education Icon">
-                    </div>
-                    <div class="timeline-content">
-                        <h3>12th Grade</h3>
-                        <span class="duration">N.P.S Khatima (2020-2021)</span>
-                        <p>Percentage: 87%</p>
-                        <button class="dropdown-btn">More Details</button>
-                        <div class="dropdown-content">
-                            <p>Subjects: Physics, Chemistry, Mathematics, English, Computer Science.</p>
-                            <p>Strong Subject: Mathematics.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 10th Grade -->
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <img src="nps.png" alt="Education Icon">
-                    </div>
-                    <div class="timeline-content">
-                        <h3>10th Grade</h3>
-                        <span class="duration">N.P.S Khatima (2018-2019)</span>
-                        <p>Percentage: 88%</p>
-                        <button class="dropdown-btn">More Details</button>
-                        <div class="dropdown-content">
-                            <p>Subjects: Mathematics, Science, English, Hindi, Social Science.</p>
-                            <p>Strong Subject: Mathematics.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <p>B.Tech. in Computer Science & Engineering from Graphic Era Hill University (2021-2025)</p>
+            <a href="education.html">View Full Education Details</a>
         </div>
     </section>
     
@@ -504,24 +479,12 @@
             <h3>Programming Languages</h3>
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" />
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-          
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
           
             
@@ -529,22 +492,11 @@
             <h3>Development Tools</h3>
             
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eclipse/eclipse-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg" />
-          
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
-            
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" />
-          
-           
         </div>
     </section>
     
@@ -552,58 +504,13 @@
 
     
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-container">
-                <div class="project-item">
-                    <img src="mobile.jpg" alt="Mobile Price Range Prediction">
-                    <h3>Mobile Price Range Prediction</h3>
-                    <p>Developed a machine learning model using Random Forest algorithm to predict mobile phone price ranges. Implemented with Python, Streamlit, and Scikit-learn.</p>
-                    <a href="https://github.com/Deveshsamant/Mobile-range-Prediction-using-Random-Forest" target="_blank">View Project</a>
-                </div>
-                <div class="project-item">
-                    <img src="hand.jpg" alt="Hand Gesture Recognition">
-                    <h3>Hand Gesture Recognition</h3>
-                    <p>Designed and implemented a system to recognize hand gestures using Mediapipe, Python, and OpenCV, enabling touchless interaction with digital systems.</p>
-                    <a href="https://github.com/Deveshsamant/Hand-gesture-recognisation" target="_blank">View Project</a>
-                </div>
-                <div class="project-item">
-                    <img src="movie.jpg" alt="Movie Recommendation System">
-                    <h3>Movie Recommendation System</h3>
-                    <p>Performed data analysis and visualization on movie data using Python libraries like Pandas, Matplotlib, and Seaborn to uncover trends in the film industry.</p>
-                    <a href="https://github.com/Deveshsamant/Movie-Recommendation-system" target="_blank">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <section id="certifications">
         <div class="container">
             <h2>Certifications</h2>
-            <div class="cert-container">
-                <div class="cert-item">
-                    <img src="python.jpg" alt="Crash Course on Python Certificate">
-                    <h3>Crash Course on Python</h3>
-                    <p>Google & Coursera - Intensive course on Python programming fundamentals</p>
-                    <a href="https://www.coursera.org/account/accomplishments/verify/LES49221JBAH" target="_blank" class="view-btn">View Certificate</a>
-                    <a href="python.jpg" class="download-btn" download="Crash_Course_on_Python_Certificate.jpg">Download Certificate</a>
-                </div>
-                <div class="cert-item">
-                    <img src="web.jpg" alt="The Web Developer Bootcamp 2024 Certificate">
-                    <h3>The Web Developer Bootcamp 2024</h3>
-                    <p>Udemy - Full-stack web development course covering front-end and back-end technologies</p>
-                    <a href="https://www.udemy.com/certificate/UC-a3a88382-d387-4a2e-93e2-c707ea7586d6/" target="_blank" class="view-btn">View Certificate</a>
-                    <a href="web.jpg" class="download-btn" download="Web_Developer_Bootcamp_Certificate.jpg">Download Certificate</a>
-                </div>
-                <div class="cert-item">
-                    <img src="kotlin.jpg" alt="The Complete Android 14 & Kotlin Development Masterclass Certificate">
-                    <h3>The Complete Android 14 & Kotlin Development Masterclass</h3>
-                    <p>Udemy - Comprehensive course on Android app development using Kotlin</p>
-                    <a href="https://www.udemy.com/certificate/UC-c05bfd05-f93c-4876-9b84-7fd8f10dc039/" target="_blank" class="view-btn">View Certificate</a>
-                    <a href="kotlin.jpg" class="download-btn" download="Android_Kotlin_Masterclass_Certificate.jpg">Download Certificate</a>
-                </div>
-            </div>
+            <p>I have completed several certifications to enhance my skills and knowledge in various areas of computer science and software development.</p>
+            <a href="certificates.html" class="btn">View My Certifications</a>
         </div>
     </section>
 
@@ -617,10 +524,6 @@
                     <i class="devicon-github-original"></i>
                 </a>
             </div>
-            
-            
-          
-            
             <p>Contact: <a href="mailto:aani64257@gmail.com">aani64257@gmail.com</a> | Phone: +91-7820020955</p>
             <p>Devesh Samant Portfolio, Copyright &copy; 2024</p>
         </footer>
