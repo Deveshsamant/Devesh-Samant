@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devesh Samant - Projects</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f0f4f8;
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
         }
         .container {
             width: 90%;
@@ -22,232 +19,204 @@
             padding: 20px;
         }
         header {
-            background: #2c3e50;
-            color: white;
-            padding: 15px 0;
-            border-bottom: #e74c3c 3px solid;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
+            padding: 20px 50px;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
         }
-        .profile-section {
+        nav {
             display: flex;
-            align-items: center;
-            margin-left: 20px;
+            justify-content: center;
+            width: 100%;
         }
-        .profile-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
         }
-        .profile-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        header a {
+        nav a {
             color: #ffffff;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s ease;
         }
-        header nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            margin: 0;
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #ff4500;
+            transition: width 0.3s ease;
         }
-        header nav li {
-            margin: 0 15px;
+        nav a:hover, nav .current a {
+            color: #ff4500;
         }
-        header .highlight, header .current a {
-            color: #e74c3c;
-            font-weight: bold;
+        nav a:hover::after, nav .current a::after {
+            width: 100%;
         }
-        header a:hover {
-            color: #ecf0f1;
-            font-weight: bold;
-        }
-        #branding {
-            display: flex;
-            align-items: center; /* Vertically aligns the branding */
-        }
-        #branding img{
+        #branding img {
             width: 100px;
             height: 100px;
         }
         #projects {
-            background-color: #ecf0f1;
             padding: 50px 0;
         }
         #projects h2 {
             text-align: center;
-            font-size: 50px;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #ff4500;
         }
         .project-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
         .project-item {
-            background: #fff;
+            background: #1c1c1c;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            padding: 20px;
-            width: calc(50% - 20px);
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.3);
         }
         .project-item img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 15px;
+            border-bottom: 3px solid #ff4500;
+        }
+        .project-content {
+            padding: 1.5rem;
         }
         .project-item h3 {
-            font-size: 24px;
-            margin: 10px 0;
-            color: #2c3e50;
+            margin: 0 0 1rem;
+            font-size: 1.5rem;
+            color: #ff4500;
         }
         .project-item p {
-            margin-bottom: 15px;
-            font-size: 16px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #ffffff;
         }
         .project-item .tech-stack {
-            margin-bottom: 15px;
             font-style: italic;
-            color: #7f8c8d;
+            color: #d3d3d3;
+            margin-bottom: 1rem;
+        }
+        .project-item ul {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+        }
+        .project-item ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #d3d3d3;
         }
         .project-item a {
             display: inline-block;
             margin-top: 10px;
             padding: 10px 15px;
-            background-color: #e74c3c;
-            color: #fff;
+            background-color: #ff4500;
+            color: #000000;
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s;
+            font-size: 0.95rem;
         }
         .project-item a:hover {
-            background-color: #c0392b;
+            background-color: #ffffff;
+            color: #ff4500;
         }
         footer {
             padding: 20px;
             margin-top: 20px;
             color: #ffffff;
-            background-color: #2c3e50;
+            background-color: #1c1c1c;
             text-align: center;
-        }
-        @media (max-width: 768px) {
-            .project-item {
-                width: 100%;
-            }
-        }
-        .fade-out {
-            animation: fadeOut 0.5s forwards;
-        }
-        .fade-in {
-            animation: fadeIn 0.5s forwards;
-        }
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        
         }
     </style>
 </head>
 <body>
-    <script>
-        document.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                // Allow default behavior for target="_blank" links
-                if (this.target === "_blank") {
-                    return;
-                }
-                event.preventDefault();
-                const target = this.href;
-                document.body.classList.add('fade-out');
-                setTimeout(function () {
-                    window.location.href = target;
-                }, 500);
-            });
-        });
-        
-    </script>
     <header>
-        <div class="container">
-            <div id="branding">
-                <img src="myphoto.jpg" alt="Devesh Samant" class="profile-photo">
-                <h1><span class="highlight">Devesh Samant</span> Projects</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li class="current"><a href="projects.html">Projects</a></li>
-                    <li><a href="certificates.html">Certifications</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li class="current"><a href="projects.html">Projects</a></li>
+                <li><a href="certificates.html">Certifications</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section id="projects">
         <div class="container">
-            <h2>Projects</h2>
+            <h2>My Projects</h2>
             <div class="project-container">
                 <div class="project-item">
                     <img src="mobile.jpg" alt="Mobile Price Range Prediction">
-                    <h3>Mobile Price Range Prediction</h3>
-                    <p>Developed a machine learning model using Random Forest algorithm to predict mobile phone price ranges. The model analyzes various features of mobile phones to estimate their price category, helping consumers and retailers make informed decisions.</p>
-                    <p class="tech-stack">Tech Stack: Python, Streamlit, Scikit-learn</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Implemented Random Forest algorithm for accurate price range prediction</li>
-                        <li>Used Streamlit to create an interactive web application for easy user input and result visualization</li>
-                        <li>Performed data preprocessing and feature engineering to improve model accuracy</li>
-                    </ul>
-                    <a href="https://github.com/Deveshsamant/Mobile-range-Prediction-using-Random-Forest" target="_blank">View Project</a>
+                    <div class="project-content">
+                        <h3>Mobile Price Range Prediction</h3>
+                        <p>Developed a machine learning model using the Random Forest algorithm to predict mobile phone price ranges. The model analyzes various features of mobile phones to estimate their price category, aiding consumers and retailers in making informed decisions.</p>
+                        <p class="tech-stack"><strong>Tech Stack:</strong> Python, Streamlit, Scikit-learn</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Implemented Random Forest algorithm for accurate price range prediction</li>
+                            <li>Used Streamlit to create an interactive web application for easy user input and result visualization</li>
+                            <li>Performed data preprocessing and feature engineering to improve model accuracy</li>
+                        </ul>
+                        <a href="https://github.com/Deveshsamant/Mobile-range-Prediction-using-Random-Forest" target="_blank">View Project</a>
+                    </div>
                 </div>
                 <div class="project-item">
                     <img src="hand.jpg" alt="Hand Gesture Recognition">
-                    <h3>Hand Gesture Recognition</h3>
-                    <p>Designed and implemented a system to recognize hand gestures using computer vision techniques. This project enables touchless interaction with digital systems, which can be applied in various fields such as virtual reality, sign language interpretation, and human-computer interaction.</p>
-                    <p class="tech-stack">Tech Stack: Python, OpenCV, Mediapipe</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Real-time hand detection and tracking using Mediapipe</li>
-                        <li>Gesture recognition based on hand landmark positions</li>
-                        <li>Integration with OpenCV for video capture and image processing</li>
-                    </ul>
-                    <a href="https://github.com/Deveshsamant/Hand-gesture-recognisation" target="_blank">View Project</a>
+                    <div class="project-content">
+                        <h3>Hand Gesture Recognition</h3>
+                        <p>Designed and implemented a system to recognize hand gestures using computer vision techniques. This project enables touchless interaction with digital systems, applicable in fields such as virtual reality, sign language interpretation, and human-computer interaction.</p>
+                        <p class="tech-stack"><strong>Tech Stack:</strong> Python, OpenCV, Mediapipe</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Real-time hand detection and tracking using Mediapipe</li>
+                            <li>Gesture recognition based on hand landmark positions</li>
+                            <li>Integration with OpenCV for video capture and image processing</li>
+                        </ul>
+                        <a href="https://github.com/Deveshsamant/Hand-gesture-recognisation" target="_blank">View Project</a>
+                    </div>
                 </div>
                 <div class="project-item">
                     <img src="movie.jpg" alt="Movie Recommendation System">
-                    <h3>Movie Recommendation System</h3>
-                    <p>Developed a comprehensive movie recommendation system that analyzes user preferences and movie characteristics to suggest personalized film choices. This project involved extensive data analysis and visualization to uncover trends in the film industry.</p>
-                    <p class="tech-stack">Tech Stack: Python, Pandas, Matplotlib, Seaborn</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Implemented collaborative filtering algorithm for personalized recommendations</li>
-                        <li>Conducted exploratory data analysis on a large dataset of movies and user ratings</li>
-                        <li>Created insightful visualizations to represent trends in movie genres, ratings, and user preferences</li>
-                    </ul>
-                    <a href="https://github.com/Deveshsamant/Movie-Recommendation-system" target="_blank">View Project</a>
+                    <div class="project-content">
+                        <h3>Movie Recommendation System</h3>
+                        <p>Developed a comprehensive movie recommendation system that analyzes user preferences and movie characteristics to suggest personalized film choices. This project involved extensive data analysis and visualization to uncover trends in the film industry.</p>
+                        <p class="tech-stack"><strong>Tech Stack:</strong> Python, Pandas, Matplotlib, Seaborn</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li>Implemented collaborative filtering algorithm for personalized recommendations</li>
+                            <li>Conducted exploratory data analysis on a large dataset of movies and user ratings</li>
+                            <li>Created insightful visualizations to represent trends in movie genres, ratings, and user preferences</li>
+                        </ul>
+                        <a href="https://github.com/Deveshsamant/Movie-Recommendation-system" target="_blank">View Project</a>
+                    </div>
                 </div>
             </div>
         </div>
