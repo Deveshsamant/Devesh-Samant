@@ -3,530 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devesh Samant - Engineering Portfolio</title>
+    <title>Devesh Samant - Web Developer</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
         }
         .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 0 20px;
+            display: flex;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4500;
+            text-decoration: none;
         }
         header {
-            background: #2c3e50;
-            color: white;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #e74c3c 3px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
         }
-        header a {
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
             color: #ffffff;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
-        }
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header #branding {
-            float: left;
-        }
-        header #branding h1 {
-            margin: 0;
-        }
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-        header .highlight, header .current a {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        header a:hover {
-            color: #ecf0f1;
-            font-weight: bold;
-        }
-        #showcase {
-            min-height: 400px;
-            background: url('/api/placeholder/1200/400') no-repeat center center/cover;
-            text-align: center;
-            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 10px 0;
             position: relative;
+            transition: color 0.3s ease;
         }
-        #showcase .overlay {
+        nav a::after {
+            content: '';
             position: absolute;
-            top: 0;
+            width: 0;
+            height: 2px;
+            bottom: 0;
             left: 0;
+            background-color: #ff4500;
+            transition: width 0.3s ease;
+        }
+        nav a:hover, nav .current a {
+            color: #ff4500;
+        }
+        nav a:hover::after, nav .current a::after {
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+        }
+        .content-section {
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding-left: 50px;
+        }
+        
+        .image-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
-        #showcase h1 {
-            font-size: 55px;
-            margin-bottom: 10px;
-        }
-        #showcase p {
-            font-size: 20px;
-        }
-        #boxes {
-            margin-top: 20px;
-        }
-        #boxes .box {
-            float: left;
-            text-align: center;
-            width: 30%;
-            padding: 10px;
-        }
-        #boxes .box img {
-            width: 90px;
-            height: 90px;
-            object-fit: cover;
+        .photo-frame {
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.6);
         }
-        footer {
-            padding: 20px;
-            margin-top: 20px;
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 0;
+        }
+        h3 {
             color: #ffffff;
-            background-color: #2c3e50;
-            text-align: center;
+            font-size: 25px;
+            margin-top: 10px;
         }
-        a {
-            color: #e74c3c;
-            text-decoration: none;
+        #typewriter {
+            color: #ff4500;
+            display: inline-block;
         }
-        a:hover {
-            text-decoration: underline;
+        #typewriter::after {
+            content: '|';
+            display: inline-block;
+            margin-left: 2px;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ff4500 }
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
         }
         .social-links a {
-            margin: 0 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #ff4500;
+            border-radius: 50%;
+            color: #000000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: #ffffff;
+            color: #ff4500;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(255, 69, 0, 0.3);
+        }
+        .resume-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px; /* Reduced horizontal padding */
+            background-color: #ff4500;
             color: #ffffff;
-        }
-        #profile {
-            text-align: center;
-            padding: 20px 0;
-        }
-        #profile img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-        #skills {
-            padding: 20px 0;
-            background-color: #ecf0f1;
-        }
-        #skills ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-        }
-        #skills li {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-        #skills h2{
-            font-size: 50px;
-            text-align: center;
-        }
-        #skills h3{
-            font-size: 25px;
-        }
-        #skills img{
-            width: 150px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            padding: 5px;
-        }
-        #certifications {
-            background-color: #ecf0f1;
-            padding: 20px 0;
-        }
-        #certifications h2{
-            font-size: 50px;
-            text-align: center;
-        }
-
-        .cert-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .cert-item {
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            padding: 20px;
-            width: calc(33% - 20px);
-            text-align: center;
-        }
-        .cert-item img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .cert-item h3 {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-        
-        .cert-item a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            background-color: #e74c3c;
-            color: #fff;
-            border-radius: 3px;
             text-decoration: none;
-        }
-        .cert-item a:hover {
-            background-color: #c0392b;
-        }
-        .cert-item .download-btn {
-            background-color: #3498db;
-        }
-        .cert-item .download-btn:hover {
-            background-color: #2980b9;
-        }
-        #projects {
-            background-color: #ecf0f1;
-            padding: 20px 0;
-        }
-        #projects h2{
-            font-size: 50px;
-            text-align: center;
-        }
-        .project-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-        .project-item {
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-            padding: 20px;
-            width: calc(33% - 20px);
-            text-align: center;
-        }
-        .project-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .project-item h3 {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-        .project-item p {
-            margin-bottom: 10px;
-        }
-        .project-item a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            background-color: #e74c3c;
-            color: #fff;
-            border-radius: 3px;
-            text-decoration: none;
-        }
-        .project-item a:hover {
-            background-color: #c0392b;
-        }
-        @media (max-width: 768px) {
-            .cert-item, .project-item {
-                width: 100%;
-            }
-            #boxes .box {
-                float: none;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-        }
-        #education {
-            background-color: #ecf0f1;
-            padding: 50px 0;
-        }
-        
-        #education h2 {
-            text-align: center;
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-        
-        .timeline {
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: relative;
-            max-width: 1200px;
-            margin: auto;
+            overflow: hidden;
+            font-size: 14px;
+            max-width: 120px; /* Set a maximum width */
+            text-align: center; /* Center the text */
+            white-space: nowrap; /* Prevent text from wrapping */
         }
-        
-        .timeline-item {
-            display: flex;
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .resume-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            transition: all 0.5s;
         }
-        
-        .timeline-icon {
-            flex: 1;
-            text-align: center;
+        .resume-btn:hover::before {
+            left: 100%;
         }
-        
-        .timeline-icon img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
+        .resume-btn:hover {
+            background-color: #ffffff;
+            color: #ff4500;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(255, 69, 0, 0.5);
         }
-        
-        .timeline-content {
-            flex: 4;
-            padding-left: 20px;
-        }
-        
-        .timeline-content h3 {
-            margin: 0;
-            font-size: 24px;
-            color: #2c3e50;
-        }
-        
-        .timeline-content .duration {
-            font-size: 16px;
-            color: #7f8c8d;
-            margin-bottom: 10px;
-        }
-        
-        .timeline-content p {
-            font-size: 18px;
-            margin: 0 0 10px 0;
-        }
-        
-        .timeline-content a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #e74c3c;
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        
-        .timeline-content a:hover {
-            background-color: #c0392b;
-        }
-        .dropdown-btn {
-            margin-top: 10px;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .dropdown-btn:hover {
-            background-color: #2980b9;
-        }
-
-        /* Dropdown Content (Initially Hidden) */
-        .dropdown-content {
-            display: none;
-            padding-top: 10px;
-            padding-left: 10px;
-            background-color: #ecf0f1;
-            border-left: 4px solid #3498db;
-            margin-top: 10px;
-        }
-
-        /* Show Dropdown Content */
-        .show {
-            display: block;
-        }
-
-        #contact img{
-            width: 35px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            padding: 5px;
-        }
-        #contact i{
-            width: 35px;
-            height: auto;
-            font-size: 35px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            padding: 5px;
-        }
-        .fade-out {
-            animation: fadeOut 0.5s forwards;
-        }
-        .fade-in {
-            animation: fadeIn 0.5s forwards;
-        }
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        
-        }
-
-        
-        
     </style>
 </head>
 <body>
-    
-    <script>
-        document.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                // Allow default behavior for target="_blank" links
-                if (this.target === "_blank") {
-                    return;
-                }
-                event.preventDefault();
-                const target = this.href;
-                document.body.classList.add('fade-out');
-                setTimeout(function () {
-                    window.location.href = target;
-                }, 500);
-            });
-        });
-        
-    </script>
-    
     <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">Devesh Samant</span> Portfolio</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"><a href="#home">Home</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="certificates.html">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
+        <nav>
+            <ul>
+                <li class="current"><a href="#home">Home</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certificates.html">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="showcase">
-        <div class="overlay">
-            <h1>Welcome to My Engineering Portfolio</h1>
-            <p>Innovative solutions in Computer Science & Engineering</p>
-        </div>
-    </section>
-
-    <section id="profile">
-        <div class="container">
-            <img src="myphoto.jpg" alt="Devesh Samant">
-            <h2>Devesh Samant</h2>
-            <p>Computer Science & Engineering Student</p>
-        </div>
-    </section>
-    <section id="education-summary">
-        <div class="container">
-            <h2>Education</h2>
-            <p>B.Tech. in Computer Science & Engineering from Graphic Era Hill University (2021-2025)</p>
-            <a href="education.html">View Full Education Details</a>
-        </div>
-    </section>
-    
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <h3>Programming Languages</h3>
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" />
-          
-            
-
-            <h3>Development Tools</h3>
-            
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eclipse/eclipse-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" />
-        </div>
-    </section>
-    
-    
-
-    
-
-   
-
-    <section id="certifications">
-        <div class="container">
-            <h2>Certifications</h2>
-            <p>I have completed several certifications to enhance my skills and knowledge in various areas of computer science and software development.</p>
-            <a href="certificates.html" class="btn">View My Certifications</a>
-        </div>
-    </section>
-
-    <section id="contact">
-        <footer>
+    <div class="container">
+        <div class="content-section">
+            <h1>Hi, It's <span style="color: #ff4500;">Devesh Samant</span></h1>
+            <h3>I'm <span id="typewriter"></span></h3>
+            <p>B.Tech. Computer Science & Engineering student at Graphic Era Hill University, Dehradun. Passionate about problem-solving, teamwork, and time management. Skilled in various programming languages and tools including C, C++, Java, JavaScript, Kotlin, SQL, HTML, Python, CSS, Data Structures, Algorithms, ReactJS, and OOPs.</p>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/devesh-samant-b78376258/" target="_blank">  
-                    <i class="devicon-linkedin-plain colored"></i>
+                <a href="https://www.linkedin.com/in/devesh-samant-b78376258/" target="_blank">
+                    <i class="devicon-linkedin-plain"></i>
                 </a>
                 <a href="https://github.com/Deveshsamant" target="_blank">
                     <i class="devicon-github-original"></i>
                 </a>
+                <a href="mailto:devsamant1744@gmail.com" target="_blank">
+                    <img src="gmail.png" alt="Gmail Icon" width="20" height="20"/>
+                </a>
             </div>
-            <p>Contact: <a href="mailto:aani64257@gmail.com">aani64257@gmail.com</a> | Phone: +91-7820020955</p>
-            <p>Devesh Samant Portfolio, Copyright &copy; 2024</p>
-        </footer>
-    </section>
+            <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn">View Resume</a>
+        </div>
+        <div class="image-section">
+            <div class="photo-frame">
+                <img src="pp.jpg" alt="Devesh Samant - Web Developer">
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+    <script>
+        const typewriter = document.getElementById('typewriter');
+        const phrases = ["Web Developer", "UI/UX Expert", "Creative Thinker"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typingSpeed = 100;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typingSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500;
+            } else if (isDeleting) {
+                typingSpeed = 50;
+            }
+
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        typeEffect();
+    </script>
 </body>
 </html>
