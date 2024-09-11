@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devesh Samant - Web Developer</title>
+    
+    <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
     <style>
         body, html {
             margin: 0;
@@ -160,7 +164,7 @@
         .resume-btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 15px; /* Reduced horizontal padding */
+            padding: 10px 15px;
             background-color: #ff4500;
             color: #ffffff;
             text-decoration: none;
@@ -172,9 +176,9 @@
             position: relative;
             overflow: hidden;
             font-size: 14px;
-            max-width: 120px; /* Set a maximum width */
-            text-align: center; /* Center the text */
-            white-space: nowrap; /* Prevent text from wrapping */
+            max-width: 120px;
+            text-align: center;
+            white-space: nowrap;
         }
         .resume-btn::before {
             content: '';
@@ -199,6 +203,24 @@
             color: #ff4500;
             transform: translateY(-2px);
             box-shadow: 0 3px 10px rgba(255, 69, 0, 0.5);
+        }
+        .icon-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            margin-top: 30px;
+            margin-left: -10px;
+        }
+        
+        .icon-container i {
+            font-size: 36px;
+            color: #ff4500;
+            transition: all 0.3s ease;
+        }
+        
+        .icon-container i:hover {
+            color: #ffffff;
+            transform: translateY(-3px);
         }
     </style>
 </head>
@@ -232,6 +254,30 @@
                 </a>
             </div>
             <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn">View Resume</a>
+            
+            <!-- Updated icon container -->
+            <div class="icon-container">
+                <i class="devicon-cplusplus-plain" title="C++"></i>          
+                <i class="devicon-python-plain" title="Python"></i>
+                <i class="devicon-java-plain" title="Java"></i>
+                <i class="devicon-html5-plain" title="HTML5"></i>
+                <i class="devicon-css3-plain" title="CSS3"></i>
+                <i class="devicon-javascript-plain" title="JavaScript"></i>
+                <i class="devicon-kotlin-plain"></i>
+                <i class="devicon-azuresqldatabase-plain"></i>
+                <i class="devicon-react-original"></i>
+              
+            </div>
+            <div class="icon-container">
+                <i class="devicon-androidstudio-plain"></i>
+                <i class="devicon-vscode-plain"></i>
+                <i class="devicon-eclipse-plain"></i>
+                <i class="devicon-jupyter-plain-wordmark"></i>
+                <i class="devicon-github-original"></i>
+                
+                
+              
+            </div>
         </div>
         <div class="image-section">
             <div class="photo-frame">
@@ -239,12 +285,12 @@
             </div>
         </div>
     </div>
-
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
+    
     <script>
         const typewriter = document.getElementById('typewriter');
-        const phrases = ["Web Developer", "UI/UX Expert", "Creative Thinker"];
+        const phrases = ["Web Developer", "UI/UX Expert", "Creative Thinker","Machine Learning Enthusiast"];
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
